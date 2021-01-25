@@ -60,7 +60,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-   - images/images/
+   - assets/images/
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -75,12 +76,12 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-   - family: Regular
-     fonts:
-       - asset: asstes/fonts/KosugiMaru-Regular.ttf
-   - family: Bold
-     fonts:
-       - asset: asstes/fonts/MPLUS1p-Bold.ttf
+    - family: Regular
+      fonts:
+        - asset: assets/fonts/KosugiMaru-Regular.ttf
+    - family: Bold
+      fonts:
+        - asset: assets/fonts/MPLUS1p-Bold.ttf
 
   #
   # For details regarding fonts from package dependencies,
