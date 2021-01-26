@@ -7,6 +7,15 @@ abstract class ApiService extends ChopperService {
   static const BASE_URL = "https://newsapi.org/v2";
   static const API_KEY = "0666a6f7d536470ca21d66741de44c5e";
 
+  static ApiService create() {
+    final client = ChopperClient(
+      baseUrl: BASE_URL,
+      services: [_$ApiService()],
+      converter: JsonConverter(),
+    );
+    return _$ApiService(client);
+  }
+
   @Get(path: "/top-headlines")
   Future<Response> getHeadLines(
       {@Query("country") String country = "jp",
