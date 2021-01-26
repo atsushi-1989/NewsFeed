@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:news_feed_two/data/category_info.dart';
+import 'package:news_feed_two/data/search_type.dart';
 import 'package:news_feed_two/view/cmponets/category_chips.dart';
 import 'package:news_feed_two/view/cmponets/search_bar.dart';
+import 'package:news_feed_two/viewmodels/news_list_viewmodel.dart';
+import 'package:provider/provider.dart';
 
 class NewsListPage extends StatelessWidget {
   @override
@@ -42,17 +45,34 @@ class NewsListPage extends StatelessWidget {
   }
 
   //FABの更新処理
-  onRefresh(BuildContext context) {
+  Future<void> onRefresh(BuildContext context) async {
+    final viewModel = Provider.of<NewsListViewModel>(context, listen: false);
+    await viewModel.getNews(
+      searchType: viewModel.searchType,
+      keyword: viewModel.keyword,
+      category: viewModel.category,
+    );
     print("NewsListPage.onRefresh");
   }
 
   //TODO キーワード記事取得処理
-  getKeywordNews(BuildContext context, keyword) {
+  Future<void> getKeywordNews(BuildContext context, keyword) async {
+    final viewModel = Provider.of<NewsListViewModel>(context, listen: false);
+    await viewModel.getNews(
+      searchType: SearchType.KEYWORD,
+      keyword: keyword,
+      category: categories[0],
+    );
     print('NewsListPage.getKeywordNews');
   }
 
   //TODO カテゴリー記事取得処理
-  getCategoryNews(BuildContext context, Category category) {
+  Future<void> getCategoryNews(BuildContext context, Category category) async {
+    final viewModel = Provider.of<NewsListViewModel>(context, listen: false);
+    await viewModel.getNews(
+      searchType: SearchType.CATEGORY,
+      category: category,
+    );
     print('NewsListPage.getCategoryNews / category: ${category.nameJp}');
   }
 }
