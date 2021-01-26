@@ -7,7 +7,6 @@ class News {
   final List<Article> articles;
   News({this.articles});
 
-
   factory News.fromJson(Map<String, dynamic> json) => _$NewsFromJson(json);
   Map<String, dynamic> toJson() => _$NewsToJson(this);
 }
@@ -18,7 +17,8 @@ class Article {
   final String description;
   final String url;
   final String urlToImage;
-  @JsonKey(name: "publishedAt") final String publishDate;
+  @JsonKey(name: "publishedAt")
+  final String publishDate;
   final String content;
 
   Article(
@@ -29,6 +29,7 @@ class Article {
       this.publishDate,
       this.content});
 
-  factory Article.fromJson(Map<String, dynamic> json) => _$ArticleFromJson(json);
+  factory Article.fromJson(Map<String, dynamic> json) =>
+      _$ArticleFromJson(json);
   Map<String, dynamic> toJson() => _$ArticleToJson(this);
 }
