@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:moor/ffi.dart';
 import 'package:moor/moor.dart';
+import 'package:news_feed_two/models/db/dao.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
 
@@ -15,7 +16,7 @@ class ArticleRecords extends Table {
   TextColumn get content => text()();
 }
 
-@UseMoor(tables: [ArticleRecords])
+@UseMoor(tables: [ArticleRecords], daos: [NewsDao])
 class MyDatabase extends _$MyDatabase {
   MyDatabase() : super(_openConnection());
 

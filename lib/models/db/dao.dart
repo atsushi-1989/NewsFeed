@@ -4,6 +4,7 @@ import 'package:news_feed_two/models/db/database.dart';
 part 'dao.g.dart';
 
 @UseDao(tables: [ArticleRecords])
-class NewsDao extends DatabaseAccessor<MyDatabase>{
+class NewsDao extends DatabaseAccessor<MyDatabase> with _$NewsDaoMixin {
+  NewsDao(MyDatabase db) : super(db);
 
 }
