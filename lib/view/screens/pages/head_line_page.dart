@@ -6,6 +6,8 @@ import 'package:news_feed_two/view/cmponets/page_transformer.dart';
 import 'package:news_feed_two/viewmodels/head_line_viewmodel.dart';
 import 'package:provider/provider.dart';
 
+import '../news_web_page_screen.dart';
+
 class HeadLinePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -62,8 +64,11 @@ class HeadLinePage extends StatelessWidget {
     await viewModel.getHeadLines(searchType: SearchType.HEAD_LINE);
   }
 
-  //TODO
   _openArticleWebPage(BuildContext context, Article article) {
     print("HeadLinePage. _openArticleWebPage: ${article.url}");
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => NewsWebPageScreen(
+              article: article,
+            )));
   }
 }

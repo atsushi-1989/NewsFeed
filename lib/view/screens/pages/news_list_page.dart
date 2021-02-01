@@ -8,6 +8,8 @@ import 'package:news_feed_two/view/cmponets/search_bar.dart';
 import 'package:news_feed_two/viewmodels/news_list_viewmodel.dart';
 import 'package:provider/provider.dart';
 
+import '../news_web_page_screen.dart';
+
 class NewsListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -97,8 +99,12 @@ class NewsListPage extends StatelessWidget {
     print('NewsListPage.getCategoryNews / category: ${category.nameJp}');
   }
 
-  //TODO
   _opneArticleWebPage(Article article, BuildContext context) {
     print("_openArticleWebPage: ${article.url}");
+
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => NewsWebPageScreen(
+              article: article,
+            )));
   }
 }
