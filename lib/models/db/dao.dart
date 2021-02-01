@@ -6,5 +6,4 @@ part 'dao.g.dart';
 @UseDao(tables: [ArticleRecords])
 class NewsDao extends DatabaseAccessor<MyDatabase> with _$NewsDaoMixin {
   NewsDao(MyDatabase db) : super(db);
-
 }
